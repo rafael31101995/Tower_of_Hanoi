@@ -8,24 +8,19 @@
 """
 
 
-def hanoi_logic(A, B, C, steps):
-    print(A, B, C, steps)
-    if steps < 1:
-        return 1
+def hanoi_logic(discos, fr, to, spare):
+    if discos == 1:
+        print(fr, to)
     else:
-        if steps % 2 == 0:
-            hanoi_logic(A, B, C, steps - 1)
-        else:
-            hanoi_logic(A, B, C, steps - 1)
-        # Montar o diagrama e ver se consegue tirar algo dele. x'
+        hanoi_logic(discos-1, fr, spare, to)
+        hanoi_logic(1, fr, to, spare)
+        hanoi_logic(discos-1, spare, to, fr)
+    # Montar o diagrama e ver se consegue tirar algo dele. x'
 
 
 def setting_steps_quantity(discos):
     total_steps = (2 ** discos) - 1
-    A = [3, 2, 1]
-    B = []
-    C = []
-    hanoi_logic(A, B, C, total_steps)
+    hanoi_logic(discos, 'A', 'C', 'B')
 
 
 if __name__ == '__main__':
