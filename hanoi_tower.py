@@ -8,19 +8,19 @@
 """
 
 
-def hanoi_logic(discos, fr, to, spare):
-    if discos == 1:
+def hanoi_logic(disc, fr, to, spare):
+    if disc == 1:
         print(fr, to)
     else:
-        hanoi_logic(discos-1, fr, spare, to)
+        hanoi_logic(disc - 1, fr, spare, to)
         hanoi_logic(1, fr, to, spare)
-        hanoi_logic(discos-1, spare, to, fr)
+        hanoi_logic(disc - 1, spare, to, fr)
     # Montar o diagrama e ver se consegue tirar algo dele. x'
 
 
-def setting_steps_quantity(discos):
-    total_steps = (2 ** discos) - 1
-    hanoi_logic(discos, 'A', 'C', 'B')
+def setting_steps_quantity(disc):
+    total_steps = (2 ** disc) - 1
+    hanoi_logic(disc, 'A', 'C', 'B')
 
 
 if __name__ == '__main__':
