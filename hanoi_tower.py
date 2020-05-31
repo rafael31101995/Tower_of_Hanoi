@@ -10,12 +10,11 @@
 
 def hanoi_logic(disc, fr, to, spare):
     if disc == 1:
-        print(fr, to)
+        print(f'Move disc {disc} from {fr} to {to}')
     else:
         hanoi_logic(disc - 1, fr, spare, to)
-        hanoi_logic(1, fr, to, spare)
+        print(f'Move disc {disc} from {fr} to {to}')
         hanoi_logic(disc - 1, spare, to, fr)
-    # Montar o diagrama e ver se consegue tirar algo dele. x'
 
 
 def setting_steps_quantity(disc):
